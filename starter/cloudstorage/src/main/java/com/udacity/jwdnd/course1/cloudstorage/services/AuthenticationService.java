@@ -15,7 +15,7 @@ public class AuthenticationService implements AuthenticationProvider {
 
   private final UserService userService;
 
-  public AuthenticationService(UserService userService, HashService hashService) {
+  public AuthenticationService(UserService userService) {
     this.userService = userService;
   }
 
@@ -39,5 +39,4 @@ public class AuthenticationService implements AuthenticationProvider {
   public boolean supports(Class<?> authentication) {
     return authentication.equals(UsernamePasswordAuthenticationToken.class);
   }
-
 }
