@@ -13,7 +13,7 @@
             <h1 class="display-5">Login</h1>
             <form th:action="@{/login}" method="POST">
                 <div class="alert alert-dark" th:if="${signupSuccess}" id="signup-success">
-                    You successfully signed up! You can now log in. ( Registration No. <span th:text="${newUserId}"></span> )
+                    You successfully signed up!
                 </div>
                 <div class="alert alert-danger" th:if="${param.error}">
                     Invalid username or password
@@ -29,7 +29,7 @@
                     <label for="inputPassword">Password</label>
                     <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Enter Password" maxlength="20" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button id="login-button" type="submit" class="btn btn-primary">Login</button>
             </form>
 
             <div class="form-group" style="margin-top: 0.5em;">

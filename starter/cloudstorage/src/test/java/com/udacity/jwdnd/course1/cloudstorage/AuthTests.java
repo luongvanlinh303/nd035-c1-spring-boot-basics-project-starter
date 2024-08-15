@@ -45,7 +45,7 @@ class AuthTests {
   }
 
   @Test
-  public void getUnauthorizedPage() {
+  void getUnauthorizedPage() {
     router.homePage();
     String defaultRedirectUrl = "http://localhost:" + this.port + "/login";
     Assertions.assertEquals(defaultRedirectUrl, driver.getCurrentUrl());
@@ -53,14 +53,14 @@ class AuthTests {
 
   @Test
   @Order(2)
-  public void getLoginPage() {
+  void getLoginPage() {
     LoginPage loginPage = router.loginPage();
     Assertions.assertEquals("Login", driver.getTitle());
     Assertions.assertEquals("Login", loginPage.mainHeading.getText());
   }
 
   @Test
-  public void getSignupPage() {
+  void getSignupPage() {
     driver.get("http://localhost:" + this.port + "/signup");
     SignupPage signupPage = router.signupPage();
     Assertions.assertEquals("Sign Up", driver.getTitle());
@@ -68,7 +68,7 @@ class AuthTests {
   }
 
   @Test
-  public void SignupLoginLogoutUnauthorizedAccess() {
+  void SignupLoginLogoutUnauthorizedAccess() {
     getSignupPage();
     SignupPage signupPage = router.signupPage();
     User user = new User(null, "test_account1", null,

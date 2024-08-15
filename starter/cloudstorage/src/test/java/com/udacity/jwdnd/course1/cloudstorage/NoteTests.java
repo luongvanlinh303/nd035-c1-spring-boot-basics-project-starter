@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class NoteTests {
+class NoteTests {
   @LocalServerPort
   private int port;
 
@@ -41,7 +41,7 @@ public class NoteTests {
   }
 
   @Test
-  public void addNote() {
+  void addNote() {
     router.defaultLogin(true);
     NotePage notePage = router.notePage();
     Note note = notePage.generateNote();
@@ -55,7 +55,7 @@ public class NoteTests {
   }
 
   @Test
-  public void editNote() {
+  void editNote() {
     router.defaultLogin(true);
     NotePage notePage = router.notePage();
     Note note = notePage.generateNote();
@@ -69,7 +69,7 @@ public class NoteTests {
   }
 
   @Test
-  public void deleteNote() {
+  void deleteNote() {
     router.defaultLogin(true);
     NotePage notePage = router.notePage();
     int deletedIdx = notePage.deleteLastNote();

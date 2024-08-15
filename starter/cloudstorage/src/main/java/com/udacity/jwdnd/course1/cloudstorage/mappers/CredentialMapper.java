@@ -15,6 +15,7 @@ public interface CredentialMapper {
   Credential getCredential(int credentialId, int userId) throws SQLException;
 
   @Select("SELECT COUNT(1) AS count FROM CREDENTIALS WHERE credentialid = #{credentialId} AND userid = #{userId}")
+  @Results({@Result(column = "count", javaType = Long.class)})
   long checkCredential(int credentialId, int userId) throws SQLException;
 
   @Insert("INSERT INTO CREDENTIALS (url, username, key, password, userid)" +

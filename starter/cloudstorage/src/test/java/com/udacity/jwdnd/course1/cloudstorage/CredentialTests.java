@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CredentialTests {
+class CredentialTests {
   @LocalServerPort
   private int port;
 
@@ -41,7 +41,7 @@ public class CredentialTests {
   }
 
   @Test
-  public void addCredential() {
+  void addCredential() {
     router.defaultLogin(true);
     CredentialPage credentialPage = router.credentialPage();
     CredentialDTO cred = credentialPage.generateCredentials();
@@ -58,7 +58,7 @@ public class CredentialTests {
   }
 
   @Test
-  public void editCredential() {
+  void editCredential() {
     router.defaultLogin(true);
     CredentialPage credentialPage = router.credentialPage();
     CredentialDTO oldCred = credentialPage.getLastCredentials();
@@ -80,7 +80,7 @@ public class CredentialTests {
   }
 
   @Test
-  public void deleteCredential() {
+  void deleteCredential() {
     router.defaultLogin(true);
     CredentialPage credentialPage = router.credentialPage();
     int deletedIdx = credentialPage.deleteLastCredential();

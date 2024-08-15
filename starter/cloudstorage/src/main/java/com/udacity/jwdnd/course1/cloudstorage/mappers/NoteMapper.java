@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -20,6 +22,7 @@ public interface NoteMapper {
   Note getNote(int noteId, int userId) throws SQLException;
 
   @Select("SELECT COUNT(1) AS count FROM NOTES WHERE noteid = #{noteId} AND userid = #{userId}")
+  @Results({@Result(column = "count", javaType = Long.class)})
   long checkNote(int noteId, int userId) throws SQLException;
 
   @Insert("INSERT INTO NOTES (notetitle, notedescription, userid)" +
