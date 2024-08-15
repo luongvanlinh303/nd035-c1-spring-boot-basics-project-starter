@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <a th:fragment="link" class="nav-item nav-link" id="nav-notes-tab" data-toggle="tab" href="#nav-notes" role="tab" aria-controls="nav-notes" aria-selected="false">Notes</a>
+    <div th:fragment="tab(notes)" class="tab-pane fade" id="nav-notes" role="tabpanel" aria-labelledby="nav-notes-tab">
+      <button style="margin: 0.25em;" type="button" class="btn btn-info float-right" onclick="showNoteModal()">
+        + Add a New Note
+      </button>
+
+      <!-- Fragment: note table -->
+      <div th:replace="fragments/notes/table :: table(notes=${notes})"></div>
+
+      <!-- Fragment: note modal -->
+      <div th:replace="fragments/notes/modal"></div>
+    </div>
+</body>
+</html>

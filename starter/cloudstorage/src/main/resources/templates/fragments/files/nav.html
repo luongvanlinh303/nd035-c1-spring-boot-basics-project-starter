@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <a th:fragment="link" class="nav-item nav-link active" id="nav-files-tab" data-toggle="tab" href="#nav-files" role="tab" aria-controls="nav-files" aria-selected="true">Files</a>
+    <div th:fragment="tab(files)" class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
+      <form action="#" th:action="@{/home/file/upload}" enctype="multipart/form-data" method="POST">
+        <div class="container">
+          <div class="row" style="margin: 1em;">
+            <div class="col-sm-2">
+              <label for="fileUpload">Upload a New File:</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="file" class="form-control-file" id="fileUpload" name="fileUpload">
+            </div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-dark">Upload</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Fragment: file table -->
+      <div th:replace="fragments/files/table :: table(files=${files})"></div>
+    </div>
+</body>
+</html>

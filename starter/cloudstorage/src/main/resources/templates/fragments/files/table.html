@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="table-responsive" th:fragment="table(files)">
+        <table class="table table-striped" id="fileTable" th:object="${files}">
+            <thead>
+            <tr>
+                <th style="width: 20%" scope="col"></th>
+                <th style="width: 80%" scope="col">File Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="file: ${files}">
+                <td>
+                    <form action="#" th:action="@{/home/file/view}" method="POST">
+                        <input type="hidden" id="viewFileName" name="fileName" th:value="${file.fileName}"/>
+                        <button type="submit" class="btn btn-success">View</button>
+                    </form>
+                    <form action="#" th:action="@{/home/file/delete}" method="POST">
+                        <input type="hidden" id="deleteFileName" name="fileName" th:value="${file.fileName}"/>
+                        <button type="submit" class="btn btn-danger" th:action="@{/home/file/delete}">Delete</button>
+                    </form>
+                </td>
+                <th scope="row" th:text="${file.fileName}"></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
